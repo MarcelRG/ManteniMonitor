@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/cars_grid.dart';
-
+// Main car dart
 class CarOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
