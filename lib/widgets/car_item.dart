@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/car_detail_screen.dart';
+
 class CarItem extends StatelessWidget {
   final String id;
   final String maker;
@@ -21,22 +23,30 @@ class CarItem extends StatelessWidget {
               onPressed: () {},
           ),
         ),
+        child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).pushNamed(CarDetailScreen.routeName, arguments: id,);
+        },
+
         child: Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
+            imageUrl,
+            fit: BoxFit.cover,
+          ),
         ),
+
         footer: GridTileBar(
           backgroundColor: Colors.white,
           title: Text(
             maker,
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
+            softWrap: true,
             style: TextStyle(
                 color: Colors.black,
-                fontSize: 15.0
+                fontSize: 15.0,
             ),
           ),
 
-          subtitle: Text(
+          trailing: Text(
             id,
             textAlign: TextAlign.center,
             style: TextStyle(

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../models/car.dart';
+import 'car.dart';
 
 class Cars with ChangeNotifier {
   List<Car> _items = [
     Car(
-      id: 'NL12345',
+      id: 'NL12355',
       maker: 'Freightliner',
       model: 'M2',
       description: 'A description of the car.',
       imageUrl:
-      'https://http2.mlstatic.com/freightliner-m2-2017-camarote-credito-disponible-tomo-auto-D_NQ_NP_721355-MLM30669501854_052019-F.jpg',
+      'https://cdn.bringatrailer.com/wp-content/uploads/2018/12/2007_freightliner_m2_sportchassis_15460205361e1f8cbe183b92007_freightliner_m2_sportchassis_1545878322ff9f98764da20181118_163812-1-940x627.jpg',
     ),
     Car(
       id: 'NL13245',
@@ -48,6 +48,11 @@ class Cars with ChangeNotifier {
   List<Car> get items{
     return [..._items];
   }
+
+  Car findById(String id){
+    return _items.firstWhere((cr) => cr.id == id);
+  }
+
   void addCar(){
     //_items.add(price);
     notifyListeners();
