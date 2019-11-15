@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import './screens/car_overview_screen.dart';
 import './screens/car_detail_screen.dart';
-import './providers/cars_provider.dart';
+import './providers/cars.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (ctx) => Cars(),
+    return ChangeNotifierProvider.value(
+      value: Cars(),
       child: MaterialApp(
         title: 'ManteniMonitor',
         theme: ThemeData(

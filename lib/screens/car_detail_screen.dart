@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/cars_provider.dart';
+import '../providers/cars.dart';
 
 class CarDetailScreen extends StatelessWidget {
   static const routeName = 'car_detail';

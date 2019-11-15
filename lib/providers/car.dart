@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-class Car {
+
+class Car with ChangeNotifier{
   final String id;
   final String maker;
   final String model;
