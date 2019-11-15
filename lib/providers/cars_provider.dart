@@ -9,7 +9,7 @@ class Cars with ChangeNotifier {
       model: 'M2',
       description: 'A description of the car.',
       imageUrl:
-      'https://http2.mlstatic.com/freightliner-m2-2017-camarote-credito-disponible-tomo-auto-D_NQ_NP_721355-MLM30669501854_052019-F.jpg',
+      'https://http2.mlstatic.com/freightliner-m2-2017-camarote-credito-disponible-tomo-auto-D_NQ_dNP_721355-MLM30669501854_052019-F.jpg',
     ),
     Car(
       id: 'NL13245',

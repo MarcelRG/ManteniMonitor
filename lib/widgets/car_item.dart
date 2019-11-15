@@ -29,14 +29,14 @@ class CarItem extends StatelessWidget {
           backgroundColor: Colors.white,
           title: Text(
             maker,
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 15.0
             ),
           ),
 
-          subtitle: Text(
+          trailing: Text(
             id,
             textAlign: TextAlign.center,
             style: TextStyle(

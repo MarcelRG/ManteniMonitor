@@ -14,7 +14,7 @@ class CarOverviewScreen extends StatelessWidget {
           DrawerHeader(
             child: Text('Drawer Header'),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.lightBlue,
             ),
           ),
           ListTile(
@@ -34,7 +34,12 @@ class CarOverviewScreen extends StatelessWidget {
         ],
       )),
       appBar: AppBar(
-        title: Text('ManteniMonitor'),
+        title: Text(
+            'ManteniMonitor',
+          style: TextStyle(
+            fontSize: 28.0,
+          ),
+        ),
       ),
       body: CarsGrid(),
     );
