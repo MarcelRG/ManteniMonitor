@@ -48,6 +48,11 @@ class Cars with ChangeNotifier {
   List<Car> get items{
     return [..._items];
   }
+
+  Car findById(String id){
+    return _items.firstWhere((cr) => cr.id == id);
+  }
+
   void addCar(){
     //_items.add(price);
     notifyListeners();
