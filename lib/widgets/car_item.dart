@@ -39,9 +39,10 @@ class CarItem extends StatelessWidget {
           title: Text(
             maker,
             textAlign: TextAlign.left,
+            softWrap: true,
             style: TextStyle(
                 color: Colors.black,
-                fontSize: 15.0
+                fontSize: 15.0,
             ),
           ),
 

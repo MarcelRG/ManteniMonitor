@@ -7,6 +7,7 @@ class Car with ChangeNotifier{
   final String description;
   final String imageUrl;
   bool isDriving;
+  bool isInCharge;
 
   Car({
     @required this.id,
@@ -15,5 +16,6 @@ class Car with ChangeNotifier{
     @required this.description,
     @required this.imageUrl,
     this.isDriving = false,
+    this.isInCharge = false,
   });
 }
