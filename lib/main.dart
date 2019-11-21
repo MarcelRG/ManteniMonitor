@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import './screens/car_overview_screen.dart';
 import './screens/car_detail_screen.dart';
+import './screens/auth_screen.dart';
 import './providers/cars.dart';
 
 void main() => runApp(MyApp());
