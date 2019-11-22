@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manteni_monitor/screens/manage_car_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -17,7 +18,15 @@ class AppDrawer extends StatelessWidget {
             onTap:() {
               Navigator.of(context).pushReplacementNamed('/');
             },
-          )
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.check_circle_outline),
+            title: Text('Administra Camiones'),
+            onTap:() {
+              Navigator.of(context).pushReplacementNamed(ManageCarScreen.routeName);
+            },
+          ),
         ],
       ),
     );
