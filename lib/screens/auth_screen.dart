@@ -1,11 +1,33 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:manteni_monitor/providers/authentication.dart';
+import 'package:manteni_monitor/screens/car_overview_screen.dart';
 
 enum AuthMode { Signup, Login }
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
+  AuthScreen({this.auth, this.loginCallback});
+
+  final BaseAuth auth;
+  final VoidCallback loginCallback;
+
   static const routeName = '/auth';
+
+  @override
+  State<StatefulWidget> createState() => new _LoginSignupPageState();
+}
+
+class _LoginSignupPageState extends State<AuthScreen> {
+  final _formKey = new GlobalKey<FormState>();
+
+  String _email;
+  String _password;
+  String _errorMessage;
+
+  bool _isLoginForm;
+  bool _isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +105,10 @@ class AuthScreen extends StatelessWidget {
 }
 
 class AuthCard extends StatefulWidget {
-  const AuthCard({
-    Key key,
-  }) : super(key: key);
+  const AuthCard({this.key, this.auth});
+
+  final BaseAuth auth;
+  final Key key;
 
   @override
   _AuthCardState createState() => _AuthCardState();
@@ -112,6 +135,14 @@ class _AuthCardState extends State<AuthCard> {
     });
     if (_authMode == AuthMode.Login) {
       // Log user in
+      FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: this._authData["email"],
+              password: this._authData["password"])
+          .then((onValue) {
+        print("LOGGED IN");
+        Navigator.of(context).pushNamed(CarOverviewScreen.routeName);
+      });
     } else {
       // Sign user up
     }
@@ -142,8 +173,8 @@ class _AuthCardState extends State<AuthCard> {
       elevation: 8.0,
       child: Container(
         height: _authMode == AuthMode.Signup ? 1000 : 1000,
-        constraints:
-            BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 1000 : 1000),
+        constraints: BoxConstraints(
+            minHeight: _authMode == AuthMode.Signup ? 1000 : 1000),
         width: deviceSize.width * 0.75,
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -168,7 +199,7 @@ class _AuthCardState extends State<AuthCard> {
                   obscureText: true,
                   controller: _passwordController,
                   validator: (value) {
-                    if (value.isEmpty || value.length < 5) {
+                    if (value.isEmpty || value.length < 6) {
                       return 'Password is too short!';
                     }
                   },
