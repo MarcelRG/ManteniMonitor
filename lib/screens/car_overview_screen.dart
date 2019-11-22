@@ -1,45 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:manteni_monitor/widgets/app_drawer.dart';
 
 import '../widgets/cars_grid.dart';
-
+// Main car dart
 class CarOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-          child: ListView(
-        // Important: Remove any padding from the ListView.
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: Text('Drawer Header'),
-            decoration: BoxDecoration(
-              color: Colors.lightBlue,
-            ),
-          ),
-          ListTile(
-            title: Text('Item 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            title: Text('Item 2'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-        ],
-      )),
+      drawer: AppDrawer(),
       appBar: AppBar(
         title: Text(
-            'ManteniMonitor',
+          'ManteniMonitor',
           style: TextStyle(
-            fontSize: 28.0,
+          fontSize: 27.0,
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){},
+          ),
+        ],
       ),
       body: CarsGrid(),
     );
