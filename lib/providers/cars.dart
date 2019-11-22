@@ -5,6 +5,7 @@ class Cars with ChangeNotifier {
   List<Car> _items = [
     Car(
       id: 'NL12355',
+      plate: 'NL12355',
       maker: 'Freightliner',
       model: 'M2',
       description: 'A description of the car.',
@@ -13,6 +14,7 @@ class Cars with ChangeNotifier {
     ),
     Car(
       id: 'NL13245',
+      plate: 'NL13245',
       maker: 'Kenworth',
       model: 'T604',
       description: 'A description of the car.',
@@ -21,6 +23,7 @@ class Cars with ChangeNotifier {
     ),
     Car(
       id: 'NL14523',
+      plate: 'NL14523',
       maker: 'Peterbilt',
       model: '567',
       description: 'A description of the car.',
@@ -29,6 +32,7 @@ class Cars with ChangeNotifier {
     ),
     Car(
       id: 'NL12345',
+      plate: 'NL12345',
       maker: 'International',
       model: 'LT',
       description: 'A description of the car.',
@@ -37,6 +41,7 @@ class Cars with ChangeNotifier {
     ),
     Car(
       id: 'NL54321',
+      plate: 'NL54321',
       maker: 'Freightliner',
       model: 'Argosy',
       description: 'A description of the car.',
@@ -53,8 +58,32 @@ class Cars with ChangeNotifier {
     return _items.firstWhere((cr) => cr.id == id);
   }
 
-  void addCar(){
-    //_items.add(price);
+  void addCar(Car car){
+    final newCar = Car(
+      plate: car.plate,
+      maker: car.maker,
+      model: car.model,
+      description: car.description,
+      imageUrl: car.imageUrl,
+      //id: DateTime.now().toString(),
+      id: car.plate,
+    );
+    _items.insert(0, newCar);
+    notifyListeners();
+  }
+
+  void updateCar(String id, Car newCar){
+    final carIndex = _items.indexWhere((car)=>car.id == id);
+    if(carIndex>=0) {
+      _items[carIndex] = newCar;
+      notifyListeners();
+    }else{
+      print('...');
+    }
+  }
+
+  void deleteCar(String id){
+    _items.removeWhere((car)=>car.id == id);
     notifyListeners();
   }
 }

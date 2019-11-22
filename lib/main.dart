@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import './screens/car_overview_screen.dart';
 import './screens/car_detail_screen.dart';
 import './screens/manage_car_screen.dart';
+import './screens/edit_car_screen.dart';
 import './screens/auth_screen.dart';
 import './providers/cars.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         routes: {
           CarDetailScreen.routeName: (ctx) => CarDetailScreen(),
           ManageCarScreen.routeName: (ctx) => ManageCarScreen(),
+          EditCarScreen.routeName: (ctx) => EditCarScreen(),
         },
       ),
     );
