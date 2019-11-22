@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:manteni_monitor/widgets/app_drawer.dart';
-import 'package:manteni_monitor/widgets/manage_car_item.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/app_drawer.dart';
+import '../widgets/manage_car_item.dart';
 import '../providers/cars.dart';
+
 import './edit_car_screen.dart';
 
 class ManageCarScreen extends StatelessWidget {
