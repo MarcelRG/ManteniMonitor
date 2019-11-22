@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class Car with ChangeNotifier{
   final String id;
+  final String plate;
   final String maker;
   final String model;
   final String description;
@@ -11,6 +12,7 @@ class Car with ChangeNotifier{
 
   Car({
     @required this.id,
+    @required this.plate,
     @required this.maker,
     @required this.model,
     @required this.description,
