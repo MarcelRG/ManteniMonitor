@@ -19,7 +19,7 @@ class CarDetailScreen extends StatelessWidget {
         title: Text(
           'ManteniMonitor',
           style: TextStyle(
-            fontSize: 28.0,
+            fontSize: 27.0,
           ),
         ),
       ),
