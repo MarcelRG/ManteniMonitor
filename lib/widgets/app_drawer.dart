@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manteni_monitor/screens/manage_car_screen.dart';
+import '../screens/manage_car_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   @override

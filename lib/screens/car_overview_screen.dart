@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:manteni_monitor/widgets/app_drawer.dart';
 
+import '../widgets/app_drawer.dart';
 import '../widgets/cars_grid.dart';
 // Main car dart
 class CarOverviewScreen extends StatelessWidget {
