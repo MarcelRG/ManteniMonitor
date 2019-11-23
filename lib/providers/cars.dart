@@ -59,6 +59,7 @@ class Cars with ChangeNotifier {
   }
 
   void addCar(Car car){
+
     final newCar = Car(
       plate: car.plate,
       maker: car.maker,
