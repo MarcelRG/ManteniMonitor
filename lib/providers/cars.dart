@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'car.dart';
 
 class Cars with ChangeNotifier {
@@ -59,18 +61,29 @@ class Cars with ChangeNotifier {
   }
 
   void addCar(Car car){
-
-    final newCar = Car(
-      plate: car.plate,
-      maker: car.maker,
-      model: car.model,
-      description: car.description,
-      imageUrl: car.imageUrl,
-      //id: DateTime.now().toString(),
-      id: car.plate,
-    );
-    _items.insert(0, newCar);
-    notifyListeners();
+    const url = 'https://fimsa-proyecto.firebaseio.com/Unidades.json';
+    http.post(url, body: json.encode({
+      'plate' : car.plate,
+      'maker' : car.maker,
+      'model' : car.model,
+      'description' : car.description,
+      'imageUrl' : car.imageUrl,
+      'isDriving' : car.isDriving,
+    }),
+    )
+        .then((response) {
+      final newCar = Car(
+        plate: car.plate,
+        maker: car.maker,
+        model: car.model,
+        description: car.description,
+        imageUrl: car.imageUrl,
+        //id: DateTime.now().toString(),
+        id: json.decode(response.body)['name'],
+      );
+      _items.insert(0, newCar);
+      notifyListeners();
+    });
   }
 
   void updateCar(String id, Car newCar){

@@ -14,7 +14,7 @@ class ManageCarItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(id),
+      title: Text(plate),
       leading: CircleAvatar(
         backgroundImage: NetworkImage(imageUrl),
       ),
