@@ -1,4 +1,4 @@
 # ManteniMonitor
 Flutter app for FIMSA company.
 
-contributors: Marcel Rodrígruez, Diego Frías, Genaro Martínez.
+contributors: Marcel Rodríguez, Diego Frías, Genaro Martínez, Rodolfo Ramírez, Jacobo Cruz, Adrian González.
