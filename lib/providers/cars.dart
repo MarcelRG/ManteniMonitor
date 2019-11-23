@@ -60,9 +60,9 @@ class Cars with ChangeNotifier {
     return _items.firstWhere((cr) => cr.id == id);
   }
 
-  void addCar(Car car){
+  Future<void> addCar(Car car){
     const url = 'https://fimsa-proyecto.firebaseio.com/Unidades.json';
-    http.post(url, body: json.encode({
+    return http.post(url, body: json.encode({
       'plate' : car.plate,
       'maker' : car.maker,
       'model' : car.model,
