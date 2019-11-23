@@ -36,6 +36,7 @@ class _EditCarScreenState extends State<EditCarScreen>{
   };
 
   var _isInit = true;
+  var _isLoading = false;
   @override
   void initState() {
     _imageFocusNode.addListener(_updateImageUrl);
@@ -83,12 +84,24 @@ class _EditCarScreenState extends State<EditCarScreen>{
       return;
     }
     _form.currentState.save();
+    setState(() {
+      _isLoading = true;
+    });
     if(_editedCar.id != null){
       Provider.of<Cars>(context, listen: false).updateCar(_editedCar.id, _editedCar);
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.of(context).pop();
     }else {
-      Provider.of<Cars>(context, listen: false).addCar(_editedCar);
+      Provider.of<Cars>(context, listen: false).addCar(_editedCar).then((_) {
+        setState(() {
+          _isLoading = false;
+        });
+        Navigator.of(context).pop();
+      });
     }
-    Navigator.of(context).pop();
+//    Navigator.of(context).pop();
   }
 
   Widget build(BuildContext context){
@@ -102,7 +115,8 @@ class _EditCarScreenState extends State<EditCarScreen>{
           )
         ],
       ),
-      body: Padding(
+      body: _isLoading ? Center(child:CircularProgressIndicator(),
+      ): Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _form,
