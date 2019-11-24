@@ -4,6 +4,9 @@ import 'package:manteni_monitor/widgets/app_drawer.dart';
 import '../widgets/cars_grid.dart';
 // Main car dart
 class CarOverviewScreen extends StatelessWidget {
+  static const routeName = '/carOverviewScreen';
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

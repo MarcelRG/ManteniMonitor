@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manteni_monitor/screens/root_page.dart';
 import 'package:provider/provider.dart';
 
 import './screens/car_overview_screen.dart';
@@ -23,11 +24,12 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.indigoAccent,
           fontFamily: 'Montserrat'
         ),
-        home: CarOverviewScreen(),
+        home: RootPage(),
         routes: {
           CarDetailScreen.routeName: (ctx) => CarDetailScreen(),
           ManageCarScreen.routeName: (ctx) => ManageCarScreen(),
           EditCarScreen.routeName: (ctx) => EditCarScreen(),
+          CarOverviewScreen.routeName: (ctx) => CarOverviewScreen()
         },
       ),
     );
