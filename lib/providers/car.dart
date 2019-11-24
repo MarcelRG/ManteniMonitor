@@ -7,6 +7,7 @@ class Car with ChangeNotifier{
   final String model;
   final String description;
   final String imageUrl;
+  final String year;
   bool isDriving;
   bool isInCharge;
 
@@ -17,6 +18,7 @@ class Car with ChangeNotifier{
     @required this.model,
     @required this.description,
     @required this.imageUrl,
+    @required this.year,
     this.isDriving = false,
     this.isInCharge = false,
   });

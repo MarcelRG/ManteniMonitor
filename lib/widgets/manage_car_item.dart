@@ -8,13 +8,16 @@ class ManageCarItem extends StatelessWidget{
   final String id;
   final String plate;
   final String imageUrl;
+  final String marca;
+  final String modelo;
+  final String year;
 
-  ManageCarItem(this.id, this.plate, this.imageUrl);
+  ManageCarItem(this.id, this.plate, this.imageUrl, this.marca, this.modelo, this.year);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(id),
+      title: Text(marca + " " + modelo + ", " + year),
       leading: CircleAvatar(
         backgroundImage: NetworkImage(imageUrl),
       ),
